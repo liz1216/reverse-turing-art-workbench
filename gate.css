@@ -1,0 +1,55 @@
+:root {
+  color-scheme: dark;
+  --ink: #f0f0f0;
+  --muted: #a6a6a6;
+  --accent: #b8b8b8;
+  --line: rgba(184,184,184,0.3);
+  --bg: #151515;
+  --card: rgba(30,30,30,0.94);
+}
+
+* { box-sizing: border-box; }
+html, body { min-width: 320px; min-height: 100%; margin: 0; background: var(--bg); }
+body {
+  color: var(--ink);
+  font: 16px/1.55 ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.gate-shell { min-height: 100dvh; display: grid; place-items: center; padding: 24px; }
+.gate-card {
+  width: min(100%, 440px);
+  padding: clamp(28px, 7vw, 48px);
+  border: 1px solid var(--line);
+  background: var(--card);
+  box-shadow: 0 24px 80px rgba(0,0,0,0.3);
+}
+.eyebrow { margin: 0 0 18px; color: var(--accent); font-size: .68rem; letter-spacing: .18em; }
+h1 { margin: 0; font-size: clamp(2rem, 8vw, 2.7rem); font-weight: 400; line-height: 1.2; }
+.intro { margin: 18px 0 30px; color: var(--muted); }
+label { display: block; margin-bottom: 8px; color: var(--muted); font-size: .84rem; }
+.input-row { display: flex; gap: 10px; }
+input, button { min-height: 46px; border: 1px solid var(--line); border-radius: 2px; font: inherit; }
+input { min-width: 0; flex: 1; padding: 0 13px; background: #101010; color: var(--ink); }
+button { padding: 0 18px; background: var(--accent); color: #1d1d1d; cursor: pointer; font-weight: 650; }
+button:hover { filter: brightness(1.08); }
+button:disabled { cursor: wait; opacity: .65; }
+input:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+#status { min-height: 1.55em; margin: 12px 0 0; color: var(--muted); font-size: .86rem; }
+.notice { margin: 28px 0 0; color: var(--muted); font-size: .8rem; }
+#unlocked { min-height: 100dvh; }
+#mount { min-height: 100dvh; }
+.lock-button { position: fixed; z-index: 1000; top: 14px; right: 14px; min-height: 36px; padding: 0 12px; background: rgba(21,21,21,.75); color: var(--accent); font-size: .8rem; }
+.runtime .lock-button {top:auto;bottom:12px;right:15px;font-size:11px;min-height:30px;opacity:.65}
+.runtime:has(.clean) .lock-button {display:none}
+[hidden] { display: none !important; }
+
+@media (max-width: 460px) {
+  .gate-shell { padding: 14px; }
+  .gate-card { padding: 26px 22px; }
+  .input-row { display: grid; }
+  .input-row button { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+}
